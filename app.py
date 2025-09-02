@@ -13,7 +13,7 @@ def main():
             if task_input not in task_list:
                 task_list.append(task_input.strip())
                 save_tasks(task_list)
-                st.experimental_rerun()
+                st.rerun()   # ✅ updated
             else:
                 st.warning("⚠️ Task already exists!")
 
@@ -25,13 +25,13 @@ def main():
         if st.button("✅ Remove Completed"):
             task_list = [t for t in task_list if t not in done_tasks]
             save_tasks(task_list)
-            st.experimental_rerun()
+            st.rerun()   # ✅ updated
 
     # Clear all
     if st.button("🗑️ Clear All Tasks"):
         task_list.clear()
         save_tasks(task_list)
-        st.experimental_rerun()
+        st.rerun()   # ✅ updated
 
 if __name__ == "__main__":
     main()
